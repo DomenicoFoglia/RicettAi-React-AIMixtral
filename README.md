@@ -1,12 +1,26 @@
-# React + Vite
+# Chef Dome - Recipe Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Chef Dome è un'applicazione React che permette di inserire una lista di ingredienti e ricevere una ricetta suggerita dall'Intelligenza Artificiale, utilizzando il modello Mistral.
 
-Currently, two official plugins are available:
+## Funzionalità
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Aggiungi ingredienti personalizzati alla lista.
+- Visualizza gli ingredienti inseriti in modo chiaro e ordinato.
+- Genera ricette su misura basate sugli ingredienti forniti.
+- Interfaccia utente semplice e moderna con React e Bootstrap.
+- Supporto per markdown nella visualizzazione della ricetta.
 
-## Expanding the ESLint configuration
+## Tecnologie utilizzate
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- React Markdown
+- Bootstrap 5
+- AI API (Mistral) per generazione ricette
+- Vite (o Create React App)
+
+## Come eseguire il progetto in locale
+
+1. Clona il repository:
+   ```bash
+   git clone https://github.com/tuo-username/chef-dome.git
+
