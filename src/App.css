@@ -1,4 +1,17 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
 
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
 
 body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -94,4 +107,51 @@ h1{
 .baffo{
     width: 100px;
     height: auto; 
+}
+
+h5 {
+    font-size: 1rem;
+    color: #444;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+h5 i {
+    transition: transform 0.3s ease;
+}
+
+h5:hover {
+    color: #e03e2f;
+}
+
+h5:hover i {
+    transform: translateX(6px);
+}
+
+footer {
+    background-color: #f8f9fa; 
+    color: #6c757d;
+    font-size: 0.9rem;
+    border-top: 1px solid #dee2e6;
+}
+
+footer a {
+    color: #333;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    margin-left: 0.25rem;
+    vertical-align: middle;
+}
+
+footer a:hover,
+footer a:focus {
+    color: #4078c0;
+    text-decoration: underline;
+    outline: none;
+}
+
+footer i.bi-github {
+    vertical-align: middle;
 }

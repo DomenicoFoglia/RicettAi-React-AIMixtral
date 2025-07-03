@@ -1,8 +1,7 @@
-import { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 import Main from './components/Main';
-import Count from './components/Count';
+import Footer from './components/Footer';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function App() {
@@ -12,6 +11,8 @@ function App() {
     <>
       <Header />
       <Main />
+      <Footer />
+
     </>
   )
 }
