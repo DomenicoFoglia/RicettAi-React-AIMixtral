@@ -1,0 +1,106 @@
+import { useState } from "react";
+import IngredientList from "./IngredientsList";
+import DomeRecipe from "./DomeRecipe";
+import { getRecipeFromMistral } from "../ai";
+
+function Main() {
+    const [ingredients, setIngredient] = useState([]);
+    const [recipeShown, setRecipeShown] = useState(false);
+    const [recipeAi, setRecipeAi] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+    function addIngredient(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const newIngredient = formData.get("ingredient").trim();
+        if (newIngredient && !ingredients.includes(newIngredient)) {
+            setIngredient(prev => [...prev, newIngredient]);
+        }
+        event.target.reset();
+    }
+
+    async function handleShowRecipe() {
+        if (ingredients.length === 0) return;
+
+        setLoading(true);
+        setError(null);
+        setRecipeShown(true);
+
+        try {
+            const result = await getRecipeFromMistral(ingredients);
+            console.log("Ricetta ricevuta:", result);
+            setRecipeAi(result);
+        } catch (err) {
+            setError("Errore nel recupero della ricetta");
+        } finally {
+            setLoading(false);
+        }
+    }
+
+    async function toggleAndGenerateRecipe() {
+        await handleShowRecipe();
+    }
+
+    function showIngredients() {
+        return ingredients.length > 0 && (
+            <IngredientList
+                ingredients={ingredients}
+                toggleAndGenerateRecipe={toggleAndGenerateRecipe}
+            />
+        );
+    }
+
+    return (
+        <main className="container py-5" style={{ maxWidth: "700px" }}>
+            <div className="text-center mb-4">
+                <p className="fs-5 fw-semibold text-secondary">
+                    Aggiungi <span className="text-primary">ALMENO 4 ingredienti</span>
+                </p>
+            </div>
+            
+            <form
+                onSubmit={addIngredient}
+                className="d-flex justify-content-center gap-3 mb-4"
+                id="ingredient-form"
+            >
+                <input
+                    type="text"
+                    className="form-control shadow-sm rounded-pill"
+                    placeholder="es. farina, pasta, pesce..."
+                    aria-label="Add ingredient"
+                    name="ingredient"
+                    style={{ maxWidth: "350px" }}
+                />
+                <button
+                    className="btn btn-primary rounded-pill px-4"
+                    type="submit"
+                >
+                    Aggiungi
+                </button>
+            </form>
+
+            {showIngredients()}
+
+            {recipeShown && !loading && (
+                <div className="card mt-4 shadow-sm p-3">
+                    <DomeRecipe recipeText={recipeAi} />
+                </div>
+            )}
+
+            {loading && (
+                <p className="text-center text-info mt-4 fw-semibold">
+                    Caricamento in corso...
+                </p>
+            )}
+
+            {error && (
+                <p className="text-center text-danger mt-4 fw-semibold">
+                    {error}
+                </p>
+            )}
+        </main>
+    );
+}
+
+export default Main;

@@ -1,0 +1,97 @@
+
+
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    
+}
+
+h1{
+    font-weight: 1000;
+}
+
+#ingredient-form > input{
+    flex-grow: 1;
+    min-width: 150px;
+    max-width: 400px;
+}
+
+#ingredient-form > button{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(0, 0, 0);
+    color:whitesmoke;
+    width: 250px;
+    min-width: 200px;
+    font-size: small;
+    font-weight: 500;
+}
+
+#ingredient-form > button:before{
+    content: "+";
+    color: red;
+    margin-right: 5px;
+}
+
+.ingredient-list li {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.get-recipe-container {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    background: 
+    url('/images/wave-ottieni-ricetta.png') no-repeat bottom -100px center,
+    #fff8e1;
+    background-size: 100% auto;
+    color: #333;
+    
+}
+
+@media (max-width: 768px) {
+    .get-recipe-container {
+        background: #fff8e1;
+    }
+}
+
+.get-recipe-container h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #f57f17; 
+}
+.get-recipe-container p {
+    margin: 0.5rem 0 0;
+    color: #444;
+}
+
+.btn-recipe {
+    background: linear-gradient(to right, #f9d523bf, #ff4e50);
+    border: none;
+    color: white;
+    padding: 0.6rem 1.4rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-recipe:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.suggested-recipe-container{
+    color: #475467;
+    line-height: 28px;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+.baffo{
+    width: 100px;
+    height: auto; 
+}
