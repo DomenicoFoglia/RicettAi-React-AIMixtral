@@ -97,6 +97,16 @@ h1{
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
+.icon-remove {
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease;
+}
+
+.icon-remove:hover {
+    transform: scale(1.2);
+}
+
 .suggested-recipe-container{
     color: #475467;
     line-height: 28px;

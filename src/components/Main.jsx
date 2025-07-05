@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useRef } from "react";
+import { useEffect } from "react";
 import IngredientList from "./IngredientsList";
 import DomeRecipe from "./DomeRecipe";
 import { getRecipeFromMistral } from "../ai";
@@ -9,6 +11,8 @@ function Main() {
     const [recipeAi, setRecipeAi] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const recipeSection = useRef(null);
+    
 
     function addIngredient(event) {
         event.preventDefault();
@@ -18,6 +22,10 @@ function Main() {
             setIngredient(prev => [...prev, newIngredient]);
         }
         event.target.reset();
+    }
+
+    function removeIngredient(ingredientToRemove) {
+        setIngredient(prev => prev.filter(i => i !== ingredientToRemove));
     }
 
     async function handleShowRecipe() {
@@ -47,9 +55,18 @@ function Main() {
             <IngredientList
                 ingredients={ingredients}
                 toggleAndGenerateRecipe={toggleAndGenerateRecipe}
+                removeIngredient={removeIngredient}
+                ref={recipeSection}
+
             />
         );
     }
+
+    useEffect(function() {
+        if(recipeSection.current !== null){
+            recipeSection.current.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [recipeAi])
 
     return (
         <main className="container py-5" style={{ maxWidth: "700px" }}>
