@@ -84,7 +84,7 @@ function Main() {
                 <input
                     type="text"
                     className="form-control shadow-sm rounded-pill"
-                    placeholder="es. farina, pasta, pesce..."
+                    placeholder="es. farina"
                     aria-label="Add ingredient"
                     name="ingredient"
                     style={{ maxWidth: "350px" }}
@@ -106,9 +106,11 @@ function Main() {
             )}
 
             {loading && (
-                <p className="text-center text-info mt-4 fw-semibold">
-                    Caricamento in corso...
-                </p>
+                <div className="d-flex justify-content-center mt-4">
+                    <div className="spinner-border text-primary" role="status" aria-label="Caricamento in corso">
+                    <span className="visually-hidden">Caricamento in corso...</span>
+                    </div>
+                </div>
             )}
 
             {error && (
