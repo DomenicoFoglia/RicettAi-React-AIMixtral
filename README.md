@@ -1,6 +1,6 @@
-# Chef Dome - Recipe Generator
+# RicettAi - Recipe Generator
 
-Chef Dome è un'applicazione React che permette di inserire una lista di ingredienti e ricevere una ricetta suggerita dall'Intelligenza Artificiale, utilizzando il modello Mistral.
+RicettAi è un'applicazione React che permette di inserire una lista di ingredienti e ricevere una ricetta suggerita dall'Intelligenza Artificiale, utilizzando il modello Mistral.
 
 ## Funzionalità
 
