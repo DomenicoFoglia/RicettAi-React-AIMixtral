@@ -8,7 +8,7 @@ function DomeRecipe({ recipeText }) {
         style={{ maxWidth: "700px", margin: "0 auto" }}
         >
             <h2 className="mb-3 text-center fs-4 fw-semibold">
-                🍽️ <span className="text-primary">Chef Dome raccomanda:</span>
+                🍽️ <span className="text-primary">Lo Chef raccomanda:</span>
             </h2>
             <article className="recipe-content bg-white p-4 rounded shadow-sm border">
                 <ReactMarkdown
